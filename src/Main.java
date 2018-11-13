@@ -1,8 +1,11 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashSet;
+
+import MaciezListowy.*;
 
 public class Main {
     public static void main(String[] args) {
-
 
 
         Node node1 = new Node(1);
@@ -34,7 +37,37 @@ public class Main {
 
         node9.addSasiad(node10);
 
-        System.out.println(node1.hasPathBFS(node7));
+
+
+        LGraph graph = new LGraph(11);
+
+        graph.connect(0, 2);
+        graph.connect(1, 2);
+        graph.connect(2, 3);
+        graph.connect(3, 1);
+        graph.connect(2, 4);
+        graph.connect(5, 5);
+        graph.connect(5, 6);
+        graph.connect(6, 5);
+        graph.connect(3, 7);
+        graph.connect(7, 3);
+        graph.connect(7, 8);
+        graph.connect(8, 7);
+        graph.connect(8, 9);
+        graph.connect(9, 8);
+        graph.connect(9, 10);
+        graph.connect(10, 9);
+        graph.connect(10, 1);
+        graph.connect(1, 10);
+
+        graph.writeMatrix();
+
+
+
+
+
+        System.out.println("Ma sciezke: " + graph.hasPathDFS(2, 9));
+        System.out.println("Ma sciezke: " + graph.hasPathBFS(2, 9));
 
     }
 }
